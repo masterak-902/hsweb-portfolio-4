@@ -14,12 +14,18 @@ importers:
       '@astrojs/preact':
         specifier: ^3.5.1
         version: 3.5.1(@babel/core@7.25.2)(preact@10.23.2)(vite@5.4.2)
+      '@fontsource-variable/roboto-mono':
+        specifier: ^5.0.20
+        version: 5.0.20
       astro:
         specifier: ^4.14.5
         version: 4.14.5(rollup@4.21.1)(typescript@5.5.4)
       preact:
         specifier: ^10.23.2
         version: 10.23.2
+      the-new-css-reset:
+        specifier: ^1.11.3
+        version: 1.11.3
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
@@ -332,6 +338,9 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/roboto-mono@5.0.20':
+    resolution: {integrity: sha512-c0lS38hfgGdhUZ2WQIwMxmdzaSz706iF3nOoAIYMTIZBYAFjP8QlHGGJNS/fPshSGMob4+/MfICsynFclQ9mDg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -1726,6 +1735,9 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
+  the-new-css-reset@1.11.3:
+    resolution: {integrity: sha512-61SB81vu9foUyEIqoU1CeqxrdlsVjJojj/CBXoG8BdvlKFsllB0Rza63DblnRqH+3uttPj3FGWo7+c9nu7MT+A==}
+
   to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
@@ -2382,6 +2394,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
+
+  '@fontsource-variable/roboto-mono@5.0.20': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -4080,6 +4094,8 @@ snapshots:
       has-flag: 3.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  the-new-css-reset@1.11.3: {}
 
   to-fast-properties@2.0.0: {}
 
