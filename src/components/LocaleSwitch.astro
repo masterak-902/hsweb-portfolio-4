@@ -1,0 +1,63 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
+import Icon from './Icon.astro';
+
+const currentlang = getLangFromUrl(Astro.url);
+const setLanguage = languages[currentlang];
+---
+<button id="translate_button">
+    <Icon icon="translate-icon" size="2.8rem" />
+    <label>{setLanguage}</label>
+</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("translate_button");
+        if (button) {
+            // 現在のURLを取得
+            const currentUrl = new URL(window.location.href);
+            const pathParts = currentUrl.pathname.split('/');
+            // 現在の言語設定を取得
+            const currentLang = document.documentElement.lang;
+            button.addEventListener("click", () => {
+                switch (currentLang) {
+                    case "ja":
+                        // 言語部分を置き換え
+                        if (pathParts.length > 1) {
+                            pathParts[1] = "en";
+                        } else {
+                            pathParts.push("en");
+                        }
+                        // 新しいURLを生成
+                        window.location.href = pathParts.join('/');
+                        break;
+
+                    case "en":
+                        // 言語部分を置き換え
+                        if (pathParts.length > 1) {
+                            pathParts[1] = "ja";
+                        } else {
+                            pathParts.push("ja");
+                        }
+                        // 新しいURLを生成
+                        window.location.href = pathParts.join('/');
+                        break;
+
+                    default:
+                        break;
+                }
+            });
+        }
+    });
+</script>
+
+<style>
+    button {
+        font-size: 2.3rem;
+        padding: 1rem;
+    }
+    button:hover {
+        box-shadow: 0 0 0 1px var(--color-font);
+    }
+</style>

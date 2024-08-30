@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Code } from 'astro:components'
+---
+
+<Layout title="Title">
+	<main>
+		<h1>トップページ</h1>
+		<p>ようこそ<br>このページは、Userさんの WEBポートフォリオになります。<br>みやすいデザインを意識して作成しています。<br>まだレスポンシブに対応していません。もうしばらくお待ち下さい</p>
+		<h2>なんかヤバそうなコード</h2>
+		<Code code="rm -rf" lang="shell" class="custom-code"/>
+		<p>&#x26a0; <alert>このコードを実行する際は慎重に行うこと</alert></p>
+		<p>もしあなたが消した人がいるなら<code>rm -rf /user</code>を実行しよう！</p>
+		<!-- ポートフォリオ -->
+		
+		<!-- テクノロジー -->
+
+		<!-- Zenn -->
+
+		<!-- 寄付のお願い Buy me a Coffee  -->
+		 
+	</main>
+</Layout>
+
+<style>
+	h1 {
+        margin-bottom: 1.5rem;
+		font-size: 5rem;
+		font-weight: bold;
+		letter-spacing: 0.2rem;
+	}
+
+	h2 {
+		margin-bottom: 1.5rem;
+		font-size: 3rem;
+		font-weight: bold;
+		letter-spacing: 0.2rem;
+	}
+
+	p {
+		margin-bottom: 1.5rem;
+		font-size: 2rem;
+
+		line-height: 3.4rem;
+		letter-spacing: 0.2rem;
+	}
+	p > code {
+		font-family: roboto-mono;
+		font-size: 2.2rem;
+
+		margin: 0 .8rem;
+		padding: .1rem 1rem;
+
+		color: var(--color-codeblock);
+		background-color: var(--bgcolor-codeblock);
+		border-radius: 0.5rem;
+
+	}
+
+    p > alert {
+        font-size: 2rem;
+        color: var(--alert-color);
+    }
+
+	.custom-code {
+		font-family: roboto-mono;
+
+		margin-bottom: 1.5rem;
+        padding: 2rem;
+
+		border: 1px solid var(--color-font);
+        border-radius: 0.5rem;
+    }
+</style>

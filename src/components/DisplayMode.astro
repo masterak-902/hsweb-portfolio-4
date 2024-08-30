@@ -1,0 +1,23 @@
+---
+
+// https://docs.astro.build/ja/tutorial/6-islands/2/
+// ダークモードの作り方！
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<button>
+    <label>ダークモード</label>
+</button>
+
+<style>
+    button {
+        font-size: 2.3rem;
+        padding: 1rem;
+    }
+    button:hover {
+        box-shadow: 0 0 0 1px var(--color-font);
+    }
+</style>
