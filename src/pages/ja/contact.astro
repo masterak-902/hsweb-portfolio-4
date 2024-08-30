@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ContactMessageForm from "../../components/ContactMessageForm.tsx";
+---
+
+<Layout title="Contact">
+    <main>
+        <h1>Contact</h1>
+        <ContactMessageForm client:load/>
+    </main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 1000px;
+		max-width: calc(100% - 2rem);
+		color: #FFF;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+</style>
