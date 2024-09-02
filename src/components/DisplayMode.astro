@@ -8,9 +8,32 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<button>
+<button id="toggle-theme">
     <label>ダークモード</label>
 </button>
+
+<script>
+    // テーマ切替ボタンのイベントリスナー
+    const toggleThemeButton = document.getElementById('toggle-theme');
+    if (toggleThemeButton) {
+        toggleThemeButton.addEventListener('click', () => {
+            let newTheme: string;
+            switch (document.body.className) {
+                case 'light':
+                    newTheme = 'dark';
+                    break;
+                case 'dark':
+                    newTheme = 'light';
+                    break;
+                default:
+                    newTheme = 'light';
+                    break;
+            }
+            document.body.setAttribute('class', newTheme);
+            sessionStorage.setItem('theme', newTheme);
+        });
+    }
+</script>
 
 <style>
     button {
