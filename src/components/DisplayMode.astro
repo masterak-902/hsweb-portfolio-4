@@ -1,38 +1,57 @@
 ---
-
-// https://docs.astro.build/ja/tutorial/6-islands/2/
-// ダークモードの作り方！
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<button id="toggle-theme">
-    <label>ダークモード</label>
-</button>
+<button id="dark-mode-button" style="display: none;">{t('mode.dark')}</button>
+<button id="light-mode-button" style="display: none;">{t('mode.light')}</button>
 
 <script>
-    // テーマ切替ボタンのイベントリスナー
-    const toggleThemeButton = document.getElementById('toggle-theme');
-    if (toggleThemeButton) {
-        toggleThemeButton.addEventListener('click', () => {
-            let newTheme: string;
-            switch (document.body.className) {
-                case 'light':
-                    newTheme = 'dark';
-                    break;
-                case 'dark':
-                    newTheme = 'light';
-                    break;
-                default:
-                    newTheme = 'light';
-                    break;
+    document.addEventListener("DOMContentLoaded", () => {
+        // ローカルストレージからテーマを取得
+        const darkModeButton = document.getElementById('dark-mode-button');
+        const lightModeButton = document.getElementById('light-mode-button');
+        
+        // テーマの更新
+        const updateButtons = (theme:string) => {
+            if (theme === 'dark') {
+                if (darkModeButton && lightModeButton) {
+                    darkModeButton.style.display = 'none';
+                    lightModeButton.style.display = 'block';
+                }
+            } else {
+                if (darkModeButton && lightModeButton) {
+                    darkModeButton.style.display = 'block';
+                    lightModeButton.style.display = 'none';
+                }
             }
-            document.body.setAttribute('class', newTheme);
-            sessionStorage.setItem('theme', newTheme);
-        });
-    }
+        };
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            updateButtons(savedTheme);
+        }
+
+        if (darkModeButton) {
+            darkModeButton.addEventListener('click', () => {
+                document.documentElement.classList.remove('light');
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateButtons('dark');
+            });
+        }
+
+        if (lightModeButton) {
+            lightModeButton.addEventListener('click', () => {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+                updateButtons('light');
+            });
+        }
+    });
 </script>
 
 <style>

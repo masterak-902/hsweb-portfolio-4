@@ -9,10 +9,14 @@ export const languages = {
     ja: {
       'nav.home': 'ホーム',
       'nav.contact': 'お問い合わせ', 
+      'mode.light': 'ライトモード',
+      'mode.dark': 'ダークモード',
     },
     en: {
       'nav.home': 'Home',
       'nav.contact': 'Contact',
+      'mode.light': 'Light Mode',
+      'mode.dark': 'Dark Mode',
     },
   } as const;
 
