@@ -1,12 +1,20 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import Icon from './Icon.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<button id="dark-mode-button" style="display: none;">{t('mode.dark')}</button>
-<button id="light-mode-button" style="display: none;">{t('mode.light')}</button>
+<button id="dark-mode-button" style="display: none;">
+    <Icon icon="dark" size="2.8rem" />
+    {t('mode.dark')}
+</button>
+
+<button id="light-mode-button" style="display: none;">
+    <Icon icon="light" size="2.8rem" />
+    {t('mode.light')}
+</button>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -59,6 +67,7 @@ const t = useTranslations(lang);
         font-size: 2.3rem;
         padding: 1rem;
     }
+    
     button:hover {
         box-shadow: 0 0 0 1px var(--color-font);
     }
