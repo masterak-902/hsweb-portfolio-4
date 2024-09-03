@@ -26,18 +26,6 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<script is:inline>
-			// is:inlineでチラツキを解消できる。
-			const savedTheme = localStorage.getItem('theme');
-			console.log('savedTheme:', savedTheme);
-			if(savedTheme) {
-				document.documentElement.classList.add(savedTheme);
-			} else {
-				const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark';
-				document.documentElement.classList.add(systemPreference);
-				localStorage.setItem('theme', systemPreference);
-			}
-		</script>
 		<header>
 			<div class="header__logo">
 				LOGO
@@ -68,7 +56,21 @@ const { title } = Astro.props;
 	</body>
 </html>
 
+<script is:inline>
+	// is:inlineでチラツキを解消できる。
+	const savedTheme = localStorage.getItem('theme');
+	console.log('savedTheme:', savedTheme);
+	if(savedTheme) {
+		document.documentElement.classList.add(savedTheme);
+	} else {
+		const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		document.documentElement.classList.add(systemPreference);
+		localStorage.setItem('theme', systemPreference);
+	}
+</script>
+
 <style is:global>
+
 	:root {
 		--color-codeblock: #ffc127;
 		--bgcolor-codeblock: #717171;
@@ -76,6 +78,7 @@ const { title } = Astro.props;
 		--alert-color: #FF4B00
 
 	}
+
 	html {
 		background-color: var(--bgcolor-basic);
 		font-family: sans-serif;
@@ -191,6 +194,5 @@ const { title } = Astro.props;
 		border: 1px solid;
 		border-radius: 0.5rem; */
 	}
-
 
 </style>
