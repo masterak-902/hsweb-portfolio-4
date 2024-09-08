@@ -8,15 +8,16 @@ interface Props {
     stroke?: string;
     size?: string;
     href?: string;
+    className?: string;
 }
 
-const { fill = 'currentcolor',stroke= 'currentcolor', icon, size, href="/" } = Astro.props;
+const { fill = 'currentcolor',stroke= 'currentcolor', icon, size, href="/", className } = Astro.props;
 const iconPath = iconPaths[icon];
 
 const attrs: HTMLAttributes<'svg'> = {};
 if (size) attrs.style = { '--size': size };
 ---
-<a href={href} target="_blank">
+<a href={href} target="_blank" class={className}>
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="40"
@@ -36,9 +37,6 @@ if (size) attrs.style = { '--size': size };
         vertical-align: middle;
         width: var(--size, 1rem);
         height: var(--size, 1rem);
-    }
-
-    svg:hover {
-        opacity: 0.7;
+        margin-right: 0.5rem;
     }
 </style>

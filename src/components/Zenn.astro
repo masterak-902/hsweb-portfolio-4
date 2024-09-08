@@ -1,0 +1,59 @@
+---
+import Icon from '../components/Icon.astro';
+export const prerender = false;
+ 
+type Article = {
+  title: string;
+  link: string;
+  pubDate: string;
+};
+
+const data:Article[] = await fetch('http://localhost:8787').then((res) => res.json());
+---
+<ul>
+    {data.map((article: Article) => (
+        <li>
+            <a href={article.link} target="_blank">{article.title}</a>
+            <p><Icon icon="pen" size="2rem" href={article.link}/>{article.pubDate}</p>
+        </li>
+    ))}
+    <li>
+        <a href="https://zenn.dev/masterak" target="_blank"><Icon icon="books" size="5rem" href='https://zenn.dev/masterak'/></a>
+    </li>
+</ul>
+
+<style>
+    ul {
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 1列に3つ */
+        grid-auto-rows: 200px; /* 各アイテムの高さを200pxに固定 */
+        gap: 1rem;
+        height: 500px; /* ul全体の高さを500pxに固定 */
+        overflow-y: auto; /* 高さを超えた部分をスクロール可能に */
+        border: 1px solid var(--color-font);
+        border-radius: 0.5rem;
+    }
+    ul::-webkit-scrollbar {
+		background-color: var(--color-basic);
+		width: 4px;
+		height: 4px;
+	}
+
+    li {
+        padding: 1rem;
+        border: 1px solid var(--color-font);
+        border-radius: 0.5rem;
+    }
+
+    li a {
+        font-size: 2.5rem;
+        font-weight: bold;
+        word-break: break-all;
+        white-space: normal;
+    }
+
+    li p {
+
+    }
+</style>
