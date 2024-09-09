@@ -18,5 +18,8 @@
     "preact": "^10.23.2",
     "the-new-css-reset": "^1.11.3",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "wrangler": "^3.75.0"
   }
 }
