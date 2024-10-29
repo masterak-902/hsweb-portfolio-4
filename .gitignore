@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# local database
+.wrangler/
+
 # generated types
 .astro/
 

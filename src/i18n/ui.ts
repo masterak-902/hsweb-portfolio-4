@@ -1,24 +1,24 @@
 export const languages = {
-    ja: "日本語",
-    en: 'English',
-  };
-  
-  export const defaultLang = 'ja';
-  
-  export const ui = {
-    ja: {
-      'nav.home': 'ホーム',
-      'nav.contact': 'お問い合わせ', 
-      'mode.light': 'ライトモード',
-      'mode.dark': 'ダークモード',
-    },
-    en: {
-      'nav.home': 'Home',
-      'nav.contact': 'Contact',
-      'mode.light': 'Light Mode',
-      'mode.dark': 'Dark Mode',
-    },
-  } as const;
+	ja: "日本語",
+	en: "English",
+};
+
+export const defaultLang = "ja";
+
+export const ui = {
+	ja: {
+		"nav.home": "ホーム",
+		"nav.contact": "お問い合わせ",
+		"mode.light": "ライトモード",
+		"mode.dark": "ダークモード",
+	},
+	en: {
+		"nav.home": "Home",
+		"nav.contact": "Contact",
+		"mode.light": "Light Mode",
+		"mode.dark": "Dark Mode",
+	},
+} as const;
 
 // as const について
 // リテラル型の推論: プロパティがリテラル型として推論されるため、型安全性が向上します。
