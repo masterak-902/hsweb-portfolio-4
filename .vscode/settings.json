@@ -1,0 +1,10 @@
+{
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "explicit"
+	},
+	"editor.fontFamily": "UDEV Gothic 35JPDOC",
+	"terminal.integrated.fontFamily": "HackGen35 Console",
+	"editor.fontSize": 16
+}

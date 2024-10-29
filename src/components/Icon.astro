@@ -1,21 +1,28 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-import { iconPaths } from './IconPaths';
+import type { HTMLAttributes } from "astro/types";
+import { iconPaths } from "./IconPaths";
 
 interface Props {
-    icon: keyof typeof iconPaths;
-    fill?: string;
-    stroke?: string;
-    size?: string;
-    href?: string;
-    className?: string;
+	icon: keyof typeof iconPaths;
+	fill?: string;
+	stroke?: string;
+	size?: string;
+	href?: string;
+	className?: string;
 }
 
-const { fill = 'currentcolor',stroke= 'currentcolor', icon, size, href="/", className } = Astro.props;
+const {
+	fill = "currentcolor",
+	stroke = "currentcolor",
+	icon,
+	size,
+	href = "/",
+	className,
+} = Astro.props;
 const iconPath = iconPaths[icon];
 
-const attrs: HTMLAttributes<'svg'> = {};
-if (size) attrs.style = { '--size': size };
+const attrs: HTMLAttributes<"svg"> = {};
+if (size) attrs.style = { "--size": size };
 ---
 <a href={href} target="_blank" class={className}>
     <svg
