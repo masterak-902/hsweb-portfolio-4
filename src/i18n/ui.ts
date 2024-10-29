@@ -1,3 +1,6 @@
+// i18n の設定ファイル
+// https://docs.astro.build/en/recipes/i18n/
+
 export const languages = {
 	ja: "日本語",
 	en: "English",

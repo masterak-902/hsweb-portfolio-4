@@ -6,5 +6,6 @@
 	},
 	"editor.fontFamily": "UDEV Gothic 35JPDOC",
 	"terminal.integrated.fontFamily": "HackGen35 Console",
-	"editor.fontSize": 16
+	"editor.fontSize": 16,
+	"editor.accessibilitySupport": "off"
 }
